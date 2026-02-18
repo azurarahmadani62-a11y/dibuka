@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permintaan Maaf Interaktif</title>
+<style>
+body, html {margin:0; padding:0; height:100%; font-family:'Comic Sans MS', cursive, sans-serif; background:#87CEEB; display:flex; justify-content:center; align-items:center;}
+.container {background:#fff; width:90%; max-width:500px; padding:20px; border-radius:20px; box-shadow:0 0 20px rgba(0,0,0,0.3); text-align:center; position:relative;}
+h1 {color:#333; font-size:1.2em;}
+.slide {display:none; animation:fadeIn 0.5s ease;}
+.slide.active {display:block;}
+button {background:#4CAF50; color:white; padding:12px 20px; margin:10px; border:none; border-radius:10px; cursor:pointer; font-size:16px;}
+button:hover {background:#45a049;}
+.dino {width:150px; margin:20px auto; display:block;}
+@keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+  <svg class="dino" viewBox="0 0 64 64">
+    <path fill="#4CAF50" d="M2 30c0 0 2-12 20-12s20 12 20 12-4-10-20-10S2 30 2 30z"/>
+    <circle fill="#fff" cx="14" cy="22" r="3"/>
+    <circle fill="#000" cx="14" cy="22" r="1.5"/>
+  </svg>
+  <h1>Masih kesal sama w?</h1>
+  <button onclick="goSlide('slide2')">Iya 😢</button>
+  <button onclick="goSlide('slide3')">Tidak 😅</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+  <h1>Hmm iya w tau kok, masih butuh waktu ya?</h1>
+  <button onclick="goSlide('slide4')">Masih 😔</button>
+  <button onclick="goSlide('slide5')">Ga kok, bentar lagi 😊</button>
+  <button onclick="goSlide('slide1')">Balik ke slide sebelumnya</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+  <h1>Hehehe makasih yaaa 😆</h1>
+  <button onclick="goSlide('slide1')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide6')">Lanjut ke pertanyaan coklat 🍫</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" id="slide4">
+  <h1>Hmm kayanya ga boleh lama deh 😆</h1>
+  <button onclick="goSlide('slide2')">Balik ke slide sebelumnya</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" id="slide5">
+  <h1>Yeeaay, makasih yaaa! 🥰</h1>
+  <button onclick="goSlide('slide2')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide6')">Lanjut ke pertanyaan coklat 🍫</button>
+</div>
+
+<!-- Slide 6 - Pertanyaan Coklat -->
+<div class="slide" id="slide6">
+  <h1>Kira-kira coklat kemarin udah dimakan belum?</h1>
+  <button onclick="goSlide('slide7')">Udah 🍫</button>
+  <button onclick="goSlide('slide8')">Belum 😅</button>
+  <button onclick="goSlide('slide5')">Balik ke slide sebelumnya</button>
+</div>
+
+<!-- Slide 7 - Udah -->
+<div class="slide" id="slide7">
+  <h1> Ih senang bangeett! Semoga moodnya makin oke ya 🥰</h1>
+  <button onclick="goSlide('slide6')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide9')">Selesai</button>
+</div>
+
+<!-- Slide 8 - Belum -->
+<div class="slide" id="slide8">
+  <h1>Hm kenapa belum? Kan kmrn udah janji langsung dimakan 😆</h1>
+  <button onclick="goSlide('slide6')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide9')">Selesai</button>
+</div>
+
+<!-- Slide 9 - Penutup -->
+<div class="slide" id="slide9">
+  <h1>semoga cepat baikan yaa kita, wopyu😘</h1>
+  <button onclick="goSlide('slide7')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide8')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide1')">Mulai lagi</button>
+</div>
+
+</div>
+
+<script>
+function goSlide(slideId){
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach(s => s.classList.remove('active'));
+  document.getElementById(slideId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
