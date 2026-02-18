@@ -5,14 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Permintaan Maaf Interaktif</title>
 <style>
-body, html {margin:0; padding:0; height:100%; font-family:'Comic Sans MS', cursive, sans-serif; background:#87CEEB; display:flex; justify-content:center; align-items:center;}
-.container {background:#fff; width:90%; max-width:500px; padding:20px; border-radius:20px; box-shadow:0 0 20px rgba(0,0,0,0.3); text-align:center; position:relative;}
-h1 {color:#333; font-size:1.2em;}
+body, html {
+  margin:0; padding:0; height:100%;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+  background:#87CEEB; /* BIRU */
+  display:flex; justify-content:center; align-items:center;
+}
+.container {
+  background:#fff;
+  width:90%; max-width:500px;
+  padding:20px;
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(0,0,0,0.2);
+  text-align:center;
+  position:relative;
+}
+h1 {
+  color:#333; font-size:1.2em; line-height:1.5em;
+  margin-bottom:25px;
+}
 .slide {display:none; animation:fadeIn 0.5s ease;}
 .slide.active {display:block;}
-button {background:#4CAF50; color:white; padding:12px 20px; margin:10px; border:none; border-radius:10px; cursor:pointer; font-size:16px;}
-button:hover {background:#45a049;}
-.dino {width:150px; margin:20px auto; display:block;}
+button {
+  background:#4CAF50; color:white;
+  padding:12px 20px; margin:8px;
+  border:none; border-radius:12px;
+  cursor:pointer; font-size:16px;
+  transition: transform 0.2s, background 0.2s;
+}
+button:hover {
+  background:#45a049;
+  transform: scale(1.1) rotate(-2deg);
+}
+.dino {width:120px; margin:10px auto; display:block;}
 @keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
 </style>
 </head>
@@ -20,7 +45,7 @@ button:hover {background:#45a049;}
 
 <div class="container">
 
-<!-- Slide 1 -->
+<!-- Slide 1 - Masih Kesal -->
 <div class="slide active" id="slide1">
   <svg class="dino" viewBox="0 0 64 64">
     <path fill="#4CAF50" d="M2 30c0 0 2-12 20-12s20 12 20 12-4-10-20-10S2 30 2 30z"/>
@@ -29,64 +54,68 @@ button:hover {background:#45a049;}
   </svg>
   <h1>Masih kesal sama w?</h1>
   <button onclick="goSlide('slide2')">Iya 😢</button>
-  <button onclick="goSlide('slide3')">Tidak 😅</button>
+  <button onclick="goSlide('slide2')">Tidak 😅</button>
 </div>
 
-<!-- Slide 2 -->
+<!-- Slide 2 - Pertanyaan Cerita -->
 <div class="slide" id="slide2">
-  <h1>Hmm iya w tau kok, masih butuh waktu ya?</h1>
-  <button onclick="goSlide('slide4')">Masih 😔</button>
-  <button onclick="goSlide('slide5')">Ga kok, bentar lagi 😊</button>
+  <h1>Mau tau cerita w hari ini ga?</h1>
+  <button onclick="goSlide('slide3')">Iya 😆</button>
+  <button onclick="goSlide('slide4')">Tidak 😅</button>
   <button onclick="goSlide('slide1')">Balik ke slide sebelumnya</button>
 </div>
 
-<!-- Slide 3 -->
+<!-- Slide 3 - Cerita -->
 <div class="slide" id="slide3">
-  <h1>Hehehe makasih yaaa 😆</h1>
-  <button onclick="goSlide('slide1')">Balik ke slide sebelumnya</button>
-  <button onclick="goSlide('slide6')">Lanjut ke pertanyaan coklat 🍫</button>
+  <h1>
+Hari ini w sangat tidak bersemangat, w tdi malam tidur jam 5 krna mau buat web ini tapi kesusahan karna baru pertama kali, trus w bangun jam setengah 11. Oh iya w mimpi tajah tapi ga tau apa hehe udah lupa, w ga ngechat bukan berarti ga mau kabar tajah hmm jangan diamin w lagi kenapa?
+  </h1>
+  <button onclick="goSlide('slide5')">Oh iya 😆</button>
+  <button onclick="goSlide('slide2')">Balik ke slide sebelumnya</button>
 </div>
 
-<!-- Slide 4 -->
+<!-- Slide 4 - Tidak mau dengar cerita -->
 <div class="slide" id="slide4">
-  <h1>Hmm kayanya ga boleh lama deh 😆</h1>
-  <button onclick="goSlide('slide2')">Balik ke slide sebelumnya</button>
+  <h1>Hmm kayanya harus tau deh 😆</h1>
+  <button onclick="goSlide('slide2')">Balik ke pertanyaan cerita</button>
 </div>
 
-<!-- Slide 5 -->
+<!-- Slide 5 - Pertanyaan Coklat -->
 <div class="slide" id="slide5">
-  <h1>Yeeaay, makasih yaaa! 🥰</h1>
-  <button onclick="goSlide('slide2')">Balik ke slide sebelumnya</button>
-  <button onclick="goSlide('slide6')">Lanjut ke pertanyaan coklat 🍫</button>
-</div>
-
-<!-- Slide 6 - Pertanyaan Coklat -->
-<div class="slide" id="slide6">
   <h1>Kira-kira coklat kemarin udah dimakan belum?</h1>
-  <button onclick="goSlide('slide7')">Udah 🍫</button>
-  <button onclick="goSlide('slide8')">Belum 😅</button>
+  <button onclick="goSlide('slide6')">Udah 🍫</button>
+  <button onclick="goSlide('slide7')">Belum 😅</button>
+  <button onclick="goSlide('slide8')">Nanti 🤔</button>
+  <button onclick="goSlide('slide3')">Balik ke cerita</button>
+</div>
+
+<!-- Slide 6 - Udah -->
+<div class="slide" id="slide6">
+  <h1>Makaaasih lho udah dimakan coklatnya, semoga moodnya makin oke ya 🥰</h1>
   <button onclick="goSlide('slide5')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide9')">Selesai 🌞</button>
 </div>
 
-<!-- Slide 7 - Udah -->
+<!-- Slide 7 - Belum -->
 <div class="slide" id="slide7">
-  <h1> Ih senang bangeett! Semoga moodnya makin oke ya 🥰</h1>
-  <button onclick="goSlide('slide6')">Balik ke slide sebelumnya</button>
-  <button onclick="goSlide('slide9')">Selesai</button>
+  <h1>Lho? kok belum dimakan? Kan kmrn udah janji 😆</h1>
+  <button onclick="goSlide('slide5')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide9')">Selesai 🌞</button>
 </div>
 
-<!-- Slide 8 - Belum -->
+<!-- Slide 8 - Nanti -->
 <div class="slide" id="slide8">
-  <h1>Hm kenapa belum? Kan kmrn udah janji langsung dimakan 😆</h1>
-  <button onclick="goSlide('slide6')">Balik ke slide sebelumnya</button>
-  <button onclick="goSlide('slide9')">Selesai</button>
+  <h1>Owkay jangan kelamaan yaa 😅</h1>
+  <button onclick="goSlide('slide5')">Balik ke slide sebelumnya</button>
+  <button onclick="goSlide('slide9')">Selesai 🌞</button>
 </div>
 
 <!-- Slide 9 - Penutup -->
 <div class="slide" id="slide9">
-  <h1>semoga cepat baikan yaa kita, wopyu😘</h1>
-  <button onclick="goSlide('slide7')">Balik ke slide sebelumnya</button>
-  <button onclick="goSlide('slide8')">Balik ke slide sebelumnya</button>
+  <h1>Makaaasih ya jaah dah mau klik web ini, w ga mau buat tajah makin gamood kalau w chat, semoga cepat membaik yaa wopyu</h1>
+  <p style="margin-top:20px; font-weight:bold; color:#ff3399;">MY LOVELY SUNSHINE 🌞</p>
+  <button onclick="goSlide('slide5')">Balik ke pertanyaan coklat</button>
+  <button onclick="goSlide('slide3')">Balik ke cerita</button>
   <button onclick="goSlide('slide1')">Mulai lagi</button>
 </div>
 
